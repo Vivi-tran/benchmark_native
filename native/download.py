@@ -112,7 +112,7 @@ def main():
     parser = build_download_parser()
     args = parser.parse_args()
     retrieve_natives(args.input, args.output_dir)
-    shutil.copy2(args.input, Path(args.output_dir) / Path(args.data_input).name)
+    shutil.copy2(args.input, Path(args.output_dir) / Path(args.input).name)
     return
 
 
