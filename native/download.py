@@ -87,16 +87,17 @@ def build_download_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "-i",
-        "--data.input",
+        "--input",
         type=str,
+        required=True,
         help="Path to input csv file with columns <id>, <pdb_id>.",
     )
     parser.add_argument(
         "-o",
-        "--data.output",
+        "--output_dir",
         type=str,
         default=".",
-        help="Directory to save into (created if missing). Default: current directory.",
+        help="Directory to save into. Default: current directory.",
     )
     return parser
 
@@ -104,7 +105,8 @@ def build_download_parser() -> argparse.ArgumentParser:
 def main():
     parser = build_download_parser()
     args = parser.parse_args()
-    retrieve_natives(args.input, args.out_dir)
+    retrieve_natives(args.input, args.output_dir)
+    shutil.copy2(args.input, Path(args.output_dir) / Path(args.data_input).name)
     return
 
 
