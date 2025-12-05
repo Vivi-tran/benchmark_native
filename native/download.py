@@ -93,7 +93,7 @@ def build_download_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "-o",
-        "--out-dir",
+        "--outdir",
         type=str,
         default=".",
         help="Directory to save into (created if missing). Default: current directory.",
