@@ -99,6 +99,12 @@ def build_download_parser() -> argparse.ArgumentParser:
         default=".",
         help="Directory to save into. Default: current directory.",
     )
+    parser.add_argument(
+        "--name",
+        type=str,
+        default="natives",
+        help="Name for the downloaded files. Default: natives.",
+    )
     return parser
 
 
