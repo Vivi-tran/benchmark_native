@@ -111,7 +111,7 @@ def build_download_parser() -> argparse.ArgumentParser:
 def main():
     parser = build_download_parser()
     args = parser.parse_args()
-    output_dir = Path("native") / args.output_dir
+    output_dir = Path(args.output_dir) / "natives"
     retrieve_natives(args.input, output_dir)
     shutil.copy2(args.input, output_dir / Path(args.input).name)
     return
