@@ -116,12 +116,12 @@ def main():
     retrieve_natives(args.input, output_dir)
     shutil.copy2(args.input, output_dir / Path(args.input).name)
     
-    # Create tar.gz archive
-    archive_name = output_dir.parent / f"{output_dir.name}.tar.gz"
-    with tarfile.open(archive_name, "w:gz") as tar:
+    # Create tar archive
+    archive_name = output_dir.parent / f"{output_dir.name}.tar"
+    with tarfile.open(archive_name, "w") as tar:
         tar.add(output_dir, arcname=output_dir.name)
     shutil.rmtree(output_dir)
-    return
+
 
 if __name__ == "__main__":
     main()
